@@ -16,12 +16,10 @@ URLTOGET="http://ianmilligan.ca/" # CHANGE THIS DEPENDING ON WHAT YOU WANT
 OUTPUT="im"
 OUTPUT2=$OUTPUT".warc"
 OUTPUT3=$OUTPUT"-filtered.warc"
-c
-COMMAND1="wget "$URLTOGET" --mirror --warc-file=im"
 
-# COMMAND1="wget "$URLTOGET" --warc-file=im" # USE FIRST COMMAND IF YOU WANT A FULL TEXT OF THE ENTIRE WEBSITE, THIS VERSION IS FOR DEBUGGING, grabs only index
+# wget $URLTOGET --mirror --warc-file=im"
 
-$COMMAND1
+wget $URLTOGET --warc-file=im # USE FIRST COMMAND IF YOU WANT A FULL TEXT OF THE ENTIRE WEBSITE, THIS VERSION IS FOR DEBUGGING, grabs only index
 
 gunzip $OUTPUT".warc.gz"
 
