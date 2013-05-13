@@ -16,10 +16,10 @@ URLTOGET="http://ianmilligan.ca/" # CHANGE THIS DEPENDING ON WHAT YOU WANT
 OUTPUT="im"
 OUTPUT2=$OUTPUT".warc"
 OUTPUT3=$OUTPUT"-filtered.warc"
+c
+COMMAND1="wget "$URLTOGET" --mirror --warc-file=im"
 
-# COMMAND1="wget "$URLTOGET" --mirror --warc-file="$OUTPUT2
-
-COMMAND1="wget "$URLTOGET" --warc-file=im" # USE FIRST COMMAND IF YOU WANT A FULL TEXT OF THE ENTIRE WEBSITE, THIS VERSION IS FOR DEBUGGING, grabs only index
+# COMMAND1="wget "$URLTOGET" --warc-file=im" # USE FIRST COMMAND IF YOU WANT A FULL TEXT OF THE ENTIRE WEBSITE, THIS VERSION IS FOR DEBUGGING, grabs only index
 
 $COMMAND1
 
@@ -36,6 +36,11 @@ warcfilter -T response $OUTPUT2 > $OUTPUT3
 mkdir html
 warchtmlindex.py $OUTPUT3 > index.html
 python /users/ianmilligan1/desktop/research/warc/warc-tools-mandel/filesdump.py $OUTPUT3 # CHANGE PATH
+
+head -n 5 fulltext.html >> 'condensed.html'
+## CREATES A TRUNCATED FULL TEXT FILE WITH THE FIRST 'n' PAGES
+## by default, set at 5, but could be tinkered with.
+## this file is easier to work w/ for text counting, etc.
 
 # THIS FOLLOWING SECTION THEN TAKES THE FULL TEXT INDEX AND TOPIC MODELS IT.
 # YOU WILL NEED TO CHANGE PATH TO YOUR MALLET INSTALL.
