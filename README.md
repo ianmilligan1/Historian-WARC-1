@@ -1,7 +1,5 @@
-Historian-WARC-Toolkit
+Historian-WARC-1
 ======================
-
-The Historian's WARC Toolkit
 
 I am just going to be tinkering here. It will create a workflow that brings together wget, WARC Tools, MALLET,
 and various visualization tools introduced in _Programming Historian 2_ [http://programminghistorian.org].
