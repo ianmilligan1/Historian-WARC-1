@@ -19,13 +19,13 @@ urltoget='http://ianmilligan.ca/'   # URL TO SCRAPE
 output='im'                         # FILENAME TO GENERATE
 output2=output+'.warc'
 
-command1='wget '+urltoget+' --mirror --warc-file='+output
+#command1='wget '+urltoget+' --mirror --warc-file='+output
 
-# print command1
+command1='wget '+urltoget+' --warc-file='+output # for trial purposes
 
-# os.system(command1)
 
-#os.system('gunzip '+output+'.warc.gz')
+os.system(command1)
+os.system('gunzip '+output+'.warc.gz')
 
 # This section takes the WARC file and generates a fulltext index.
 
@@ -35,8 +35,6 @@ command2='warcfilter -T response '+output2+' > '+output3
 command3='warchtmlindex.py '+output3+' > index.html'
 command4='python /users/ianmilligan1/desktop/research/warc/warc-tools-mandel/filesdump.py '+output3
 
-print command4
-
 os.system(command2)
 os.system(command3)
 os.system("mkdir html")
@@ -44,5 +42,5 @@ os.system(command4)
 
 # This section takes the fulltext index and topic models it.
 
-os.system('/users/ianmilligan1/mallet-2.0.7/bin/mallet import-file --input fulltext.html --output warc.mallet --keep-sequence --remove-stopwords')
-os.system('/users/ianmilligan1/mallet-2.0.7/bin/mallet --input warc.mallet --num-topics 50 --output-state warc-topic-state.gz --output-topic-keys warc_keys.txt --output-doc-topics warc_compostion.txt')
+os.system('/users/ianmilligan1/mallet-2.0.7/bin/mallet --input-file fulltext.html --output warc.mallet --keep-sequence --remove-stopwords')
+os.system('/users/ianmilligan1/mallet-2.0.7/bin/mallet train-topics --input warc.mallet --num-topics 50 --output-state warc-topic-state.gz --output-topic-keys warc_keys.txt --output-doc-topics warc_compostion.txt')
