@@ -1,5 +1,7 @@
 # historian-warc-toolkit.py
 #
+# DO NOT USE THIS VERSION - IT HAS BEEN SUPERCEDED BY BASH VERSION
+#
 # This toolkit integrates a number of things that historians may find helpful
 # when using WARC files.
 #
