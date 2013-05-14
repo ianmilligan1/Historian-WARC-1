@@ -7,6 +7,8 @@
 # To use this, run the previous file in this repository and then run this.
 
 ## This first part takes the WARC-TOOLS output and puts it into a format happy for Stanford-Termite.
+## IMPORTANT NOTE: SO FAR, ONLY WORKS ON WARC FILES WITH ONE FILE. BUT IT IS CLOSE TO BEING ABLE TO HANDLE
+## MULTIPLE FILES.
 
 textutil -convert txt fulltext.html # converts output file into fulltext.txt
 
