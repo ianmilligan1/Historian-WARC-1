@@ -16,11 +16,10 @@ textutil -convert txt fulltext.html # converts output file into fulltext.txt
 #sed 's/[^     ]*      \(.*\)/\1/' fulltext1.txt > fulltext2.txt # ibid
 
 sed  's .\{4\}  ' fulltext.txt > fulltext2.txt #  eliminates starting tabs
-echo -e "1\t" | cat - fulltext2.txt > /tmp/out && mv /tmp/out output.txt # append the file number to front
-rm fulltext2.txt
+
+echo "1\t" | cat - fulltext2.txt > /tmp/out && mv /tmp/out output.txt # append the file number to front
 
 tr -d '\r\n' <output.txt > output2.txt # eliminate line breaks
-rm output.txt
 
 sed -i.old $'s/\xE2\x80\xA8/ /g' output2.txt # eliminates weird unicode (hex 2028) line break
 
