@@ -3,7 +3,8 @@
 
 # run in path of file
 # this is messy, creating several files (allowed me to find issues)
-
+# 
+# To use this, run the previous file in this repository and then run this.
 
 ## This first part takes the WARC-TOOLS output and puts it into a format happy for Stanford-Termite.
 
