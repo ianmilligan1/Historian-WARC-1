@@ -1,0 +1,5 @@
+repo: 0fb5b62dda5e6db14f2b4ed6a7e71134b499ef90
+node: e2c8b74b545c9a2ae395acbc4037ef59db76050a
+branch: default
+latesttag: build_success-2012-09-14T16-25-56.483325901
+latesttagdistance: 16

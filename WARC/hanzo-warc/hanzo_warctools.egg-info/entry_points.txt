@@ -1,0 +1,11 @@
+
+        [console_scripts]
+        warcdump=hanzo.warcdump:run
+        arc2warc=hanzo.arc2warc:run
+        warcextract=hanzo.warcextract:run
+        warcfilter=hanzo.warcfilter:run
+        warcindex=hanzo.warcindex:run
+        warclinks=hanzo.warclinks:run
+        warcvalid=hanzo.warcvalid:run
+        warc2warc=hanzo.warc2warc:run
+    
