@@ -20,6 +20,13 @@ AT THIS POINT:
 
 More work coming over the summer.
 
+License
+=======
+All code in this main directory is by me, made available CC-BY.
+
+Code in WARC directory is taken from older version of WARC-Tools, please note license in their respective
+directories.
+
 <b>Ian Milligan</b> [i2milligan@uwaterloo.ca]<br>
 Department of History<br>
 University of Waterloo, Ontario
