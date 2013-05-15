@@ -1,3 +1,4 @@
+#!/bin/bash
 # WARC-Tools to StanfordHCI/Termite
 # Ian Milligan, University of Waterloo (i2milligan@uwaterloo.ca)
 
