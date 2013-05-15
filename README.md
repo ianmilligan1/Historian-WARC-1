@@ -6,6 +6,10 @@ Blog post here: http://ianmilligan.ca/2013/05/15/warc-to-topic-models/
 I am just going to be tinkering here. It will create a workflow that brings together wget, WARC Tools, MALLET,
 and various visualization tools introduced in _Programming Historian 2_ [http://programminghistorian.org].
 
+I obviously didn't write WARC tools, as the license shows. Websites for them are here 
+http://code.hanzoarchives.com/warc-tools and http://mandal.ca/web.cgi/HelpOnWarcTools. The latter
+has seen functionality change, so I have included an older version that works with my program.
+
 If you have any suggestions, comments, etc., please do not hesitate to let me know.
 
 AT THIS POINT:
