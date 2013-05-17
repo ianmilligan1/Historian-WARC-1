@@ -19,7 +19,7 @@ import warc
 url='http://ianmilligan.ca/' # need to grab from WARC file
 n=7
 
-text=open('/users/ianmilligan1/desktop/troubleshoot/fulltext.txt').read()
+text=open('/users/ianmilligan1/desktop/troubleshoot/fulltext.txt').read() # you will need to change this
 
 # need to figure out how to push this from a bash script?!
 
