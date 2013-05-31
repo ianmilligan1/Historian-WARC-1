@@ -1,10 +1,15 @@
-searchword="mellen"; (* change for KWIC outcomes *)
+(* ::Package:: *)
+
+#!/usr/local/bin/MathKernel -script
+
+searchword=$CommandLine[[4]];
+lines={};
 
 sparkline[data_]:=DateListPlot[data,{1997},FrameTicks->{{Automatic,Automatic},{{{2007,1,15},Red}},None},Axes->False,Frame->False,Joined->True,PlotRange->All,Filling->Bottom,AspectRatio->0.2,ImageSize->120];
 
-distance=1; (* set amount of lines from WARC you want to analyze *)
+distance=5; (* set amount of lines from WARC you want to analyze *)
 
-lines=Import["/users/ianmilligan1/desktop/dale-askey/fulltext3.txt",{"Lines",Range[1,distance]}];
+AppendTo[lines,Import["fulltext.txt",{"Lines",Range[1,distance]}]];
 
 (* need to generate list of stopwords *)
 out=StringSplit[ToLowerCase[#],Except[WordCharacter]..]&/@lines;
@@ -17,12 +22,12 @@ stringnostop=Select[string,Not[MemberQ[stopwords,#]]&];
 frequencylist=Sort[Tally[stringnostop],#1[[2]]>#2[[2]]&];
 setup=Partition[string,7,1];
 
-title=StringDrop[StringCases[lines,Shortest["http://"|"https://"~~___~~"HTTP/1.1"]],-8]<>" WARC"; (* change to regex *)
-x=Flatten[StringPosition[lines,"Date:"]][[1]];
-date=StringTake[lines,{x,x+35}];
+title=StringDrop[StringCases[First[Flatten[lines]],Shortest["http://"|"https://"~~___~~"HTTP/1.1"]],-8]<>" WARC"; (* change to regex *)
+x=Flatten[StringPosition[First[Flatten[lines]],"Date:"]][[1]];
+date=StringTake[First[Flatten[lines]],{x,x+35}];
 
-x=Flatten[StringPosition[lines,"Connection:"]][[1]];
-preview=StringTake[lines,{x,x+1500}];
+x=Flatten[StringPosition[First[Flatten[lines]],"Connection:"]][[1]];
+preview=StringTake[First[Flatten[lines]],{x,x+1500}];
 
 (* word cloud script, courtesy StackExchange - thanks everybody! *)
 (* CONSIDERATION: replace Word Cloud with just a sorted frequency list? Might be more rigorous but eliminates the speed aspect. *)
@@ -45,8 +50,8 @@ words=Style[First@#,FontFamily->"Cracked",FontWeight->Bold,FontColor->Hue[Random
 wordsimg=ImageCrop[Image[Graphics[Text[#]]]]&/@words;
 Fold[iteration,wordsimg[[1]],Rest[wordsimg]];
 
-input=Drop[Drop[Import["/users/ianmilligan1/desktop/dale-askey/warc_Composition.txt","Table"],1],None,1];
-keys=Import["/users/ianmilligan1/desktop/dale-askey/warc_keys.txt","Lines"];
+input=Drop[Drop[Import["warc_Composition.txt","Table"],1],None,1];
+keys=Import["warc_keys.txt","Lines"];
 
 topics={}; (** here we are building the frequency for each file - i.e. for each 8612 tweets, we are building a list of topic frequencies **)
 tr=Range[1,50]; (** reflects number of topics **)

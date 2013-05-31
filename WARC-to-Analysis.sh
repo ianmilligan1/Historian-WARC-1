@@ -16,6 +16,7 @@
 # THIS SECTION TAKES A WARC FILE PASSED VIA COMMAND LINE AND USES WARC TOOLS.
 
 WARC=$1
+KWIC=$2
 JUSTFILE=${WARC%?????}
 OUTPUT=$JUSTFILE"-filtered.warc"
 
@@ -44,17 +45,21 @@ textutil -convert txt fulltext.html # converts output file into fulltext.txt
 
 sed  's .\{4\}  ' fulltext.txt > fulltext2.txt # eliminates starting tabs
 
-cat -n fulltext2.txt | perl -pe "s/^\s*(\d+)\s+/\1\t/" > fulltext3.txt # introduces line numbers
+rm fulltext.txt
 
-sed -i.old $'s/\xE2\x80\xA8/ /g' fulltext3.txt # removes weird unicode (hex 2028) line break
+cat -n fulltext2.txt | perl -pe "s/^\s*(\d+)\s+/\1\t/" > fulltext.txt # introduces line numbers
+
+rm fulltext2.txt
+
+sed -i.old $'s/\xE2\x80\xA8/ /g' fulltext.txt # removes weird unicode (hex 2028) line break
 
 # Some WARC files are too big, so you may need to truncate number of lines depending on memory.
 # default below takes first five files (1,5p) but replace upwards to change range.
 
-sed -n 1,5p fulltext3.txt > lines.txt 
+sed -n 1,5p fulltext.txt > lines.txt 
 
 # now run Mathematica Script
 
 alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 
-math -script WARC-to-Analysis-single-file.m
+math -script WARC-to-Analysis-Mathematica.m $KWIC
