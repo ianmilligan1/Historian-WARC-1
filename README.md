@@ -1,7 +1,8 @@
 Historian-WARC-1
 ======================
 
-Blog post here: http://ianmilligan.ca/2013/05/15/warc-to-topic-models/
+Blog post here: http://ianmilligan.ca/2013/05/15/warc-to-topic-models/ and additional documentation on running it all
+together on the command line here: http://ianmilligan.ca/2013/05/24/putting-it-all-together-warc-to-output/
 
 I am just going to be tinkering here. It will create a workflow that brings together wget, WARC Tools, MALLET,
 and various visualization tools introduced in _Programming Historian 2_ [http://programminghistorian.org].
