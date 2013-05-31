@@ -58,7 +58,7 @@ within the WARC folder in this repository.
 <li>Set the path to MALLET on line 38, 39. Follow MALLET instructions: http://programminghistorian.org/lessons/topic-modeling-and-mallet
 <li>Set alias to your MathKernel on line 63 in WARC-to-Analysis.sh if it is not installed in default Applications directory.
 <li>Only relevant change in WARC-to-Analysis-Mathematica should be the distance= variable. Set to see how far in to the WARC file you want to go. By default, reads first five entires for preview/word cloud purposes. More is better.
-
+</ol>
 
 Other Tools
 ===========
