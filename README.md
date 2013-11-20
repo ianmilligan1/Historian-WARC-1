@@ -29,6 +29,9 @@ what you want to learn from the file. By default this is a PDF w/
 <li>Topic Models with Sparklines to show distribution of topic across the WARC file.
 </ol>        
 
+There is an additional program: WARC-to-Analysis-NER.sh. This does what the previous one does, but also adds <b>organization</b>,
+<b>location</b>, and <b>person</b> entity extraction. By default you get the first fifty hits. Code was taken from http://williamjturkel.net/2013/06/30/named-entity-recognition-with-command-line-tools-in-linux/. Thanks Bill!
+
 Requirements
 ============
 <ul>
@@ -36,6 +39,8 @@ Requirements
 <li>Mathematica (tested on 9, should work with 8)
 <li>Mallet 2.0.7 (http://mallet.cs.umass.edu)
 </ul>
+
+For the WARC-to-Analysis-NER.sh script, you must also have a copy of Stanford NER. Tested on http://nlp.stanford.edu/software/stanford-ner-2013-06-20.zip. By default, you can have the NER directory in the Historian-WARC-1 directory, or you can just point to it from the script. The pattern files help identify what we're looking for.
 
 How to Call It
 ==============
@@ -49,6 +54,11 @@ i.e.
 <code>sh ./WARC-to-Analysis.sh ianmilligan.warc "history"</code>
 
 Will run it.
+
+For the NER version, same idea, just like:
+
+<code>sh ./WARC-to-Analysis-ner.sh ianmilligan.warc "history"</code>
+
 
 Setup
 =====
