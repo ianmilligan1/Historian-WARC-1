@@ -27,10 +27,10 @@ OUTPUT=$JUSTFILE"-filtered.warc"
 # MANDEL WARC TOOLS (SOME EXTENDED FUNCTIONALITY): http://mandal.ca/web.cgi/HelpOnWarcTools
 # LYNXLET: http://habilis.net/lynxlet/ 
 
-warcfilter -T response $WARC > $OUTPUT
+./warc/warc-tools-mandel/warcfilter.py -T response $WARC > $OUTPUT
 mkdir html
-warchtmlindex.py $OUTPUT > index.html
-python /users/ianmilligan1/desktop/research/warc/warc-tools-mandel/filesdump.py $OUTPUT # CHANGE PATH
+./warc/warc-tools-mandel/warchtmlindex.py $OUTPUT > index.html
+./warc/warc-tools-mandel/filesdump.py $OUTPUT # CHANGE PATH
 
 # THIS FOLLOWING SECTION THEN TAKES THE FULL TEXT INDEX AND TOPIC MODELS IT. COMMENTED OUT IF USING STANFORD.
 # YOU WILL NEED TO CHANGE PATH TO YOUR MALLET INSTALL.
