@@ -1,6 +1,8 @@
 Historian-WARC-1
 ======================
 
+**Note: This is very preliminary, now depreciated work. I've largely moved to Solr and Warcbase as my primary web archive access methods. This method worked on smaller collections, but runs into serious issues when getting above ~ 100 GB or so (unless you have extreme patience. I'm leaving it here in case it might help.**
+
 Blog post here: http://ianmilligan.ca/2013/05/15/warc-to-topic-models/ and additional documentation on running it all
 together on the command line here: http://ianmilligan.ca/2013/05/24/putting-it-all-together-warc-to-output/
 
